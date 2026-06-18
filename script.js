@@ -1,24 +1,23 @@
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
+document.addEventListener("DOMContentLoaded", () => {
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const proposalPage = document.getElementById("proposalPage");
+    const resultPage = document.getElementById("resultPage");
 
-const proposalPage = document.getElementById("proposalPage");
-const resultPage = document.getElementById("resultPage");
+    function moveNoButton() {
+        const x = Math.random() * (window.innerWidth - 150);
+        const y = Math.random() * (window.innerHeight - 80);
 
-function moveNoButton() {
-    const maxX = 250;
-    const maxY = 100;
+        noBtn.style.position = "fixed";
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("click", moveNoButton);
 
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
-}
-
-noBtn.addEventListener("mouseenter", moveNoButton);
-noBtn.addEventListener("click", moveNoButton);
-
-yesBtn.addEventListener("click", () => {
-    proposalPage.classList.add("hidden");
-    resultPage.classList.remove("hidden");
+    yesBtn.addEventListener("click", () => {
+        proposalPage.style.display = "none";
+        resultPage.classList.remove("hidden");
+    });
 });
