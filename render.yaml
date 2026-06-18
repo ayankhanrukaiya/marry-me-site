@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: marry-me-site
+    env: static
+    staticPublishPath: .
